@@ -9,8 +9,10 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "scripts": {
-    "test": "CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
+    "test":
+      "CI=1 react-scripts test --env=jsdom --testMatch '<rootDir>/test/**/?(*.)(spec|test).{js,jsx,mjs}' --setupTestFrameworkScriptFile '<rootDir>/test/config/setupTest.js'",
+    "test:watch":
+      "react-scripts test --env=jsdom --testMatch '<rootDir>/test/**/?(*.)(spec|test).{js,jsx,mjs}' --setupTestFrameworkScriptFile '<rootDir>/test/config/setupTest.js' --watch",
     "build": "rollup -c && flow-copy-source -v src dist",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
@@ -37,6 +39,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.1.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.34.1",
@@ -53,6 +57,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.1",
+    "react-to-typescript-definitions": "^0.28.2",
     "rollup": "^0.54.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.1",
